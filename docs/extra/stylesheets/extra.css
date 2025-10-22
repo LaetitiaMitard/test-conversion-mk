@@ -1,0 +1,97 @@
+/* Bannière d'annonce personnalisée */
+.breaking-news-banner {
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* border-bottom: 1px solid var(--md-primary-fg-color--light); */
+  background-color: transparent; /* Pas de fond jaune */
+/*   color: var(--md-primary-fg-color); */
+}
+
+/* Texte défilant */
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
+  will-change: transform;
+  min-width: 100%;
+}
+
+/* Animation du texte */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* -----------------------------------------------------------------------------------------------------------
+Liens Doc :
+- https://webdesign.tutsplus.com/series/understanding-the-css-grid-layout-module--cms-1079
+- https://webdesign.tutsplus.com/tutorials/solving-problems-with-css-grid-and-flexbox-the-card-ui--cms-27468
+----------------------------------------------------------------------------------------------------------- */
+
+/* Announcement bar sur 2 colonnes */
+.band-2-columns {
+    display: grid;
+    width: 95%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 20px;
+    text-align: center;
+  }
+  
+  /* Pour réduire la barre d'annonce */
+  .md-banner__inner {
+    /* margin: 0 auto; */
+    /* padding: 0 auto; */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Making emojis bigger and align with text */
+  /* source : https://stackoverflow.com/questions/34594297/making-emojis-bigger-and-align-with-text */
+  span.emoji {
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+  
+  /* Réduction de la marge pour le titre afin de coller au logo */
+  [dir=ltr] .md-header__title {
+    margin: 0 auto;
+  }
+  
+  /* Agrandir la tailler du logo dans le titre */
+  .md-header__button.md-logo :is(img, svg) {
+    height: 2rem;
+    width: auto;
+  }
+  .md-header__button.md-logo :-webkit-any(img,svg) {
+      height: 2rem;
+      width: auto;
+  }
+  
+  /* Maximiser la zone d'affichage */
+  .md-grid {
+      max-width: initial;
+  }
+  
+  /* Pour souligner les sous titres */
+  .md-typeset h2:after {
+    content:' ';
+    display:block;
+    border:1px solid var(--md-primary-fg-color);
+  }
+  
+  /* Changement de la taille de la police de caractère */
+  .md-typeset {
+    font-size: 0.7rem !important;
+  }
